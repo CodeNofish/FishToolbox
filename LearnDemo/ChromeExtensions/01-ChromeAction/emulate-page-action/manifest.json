@@ -1,0 +1,15 @@
+{
+  "name": "emulate page action demo",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "使用 declarativeContent 模拟 pageActions"
+  },
+  "permissions" : [
+    "activeTab",
+    "scripting"
+  ],
+  "background" : {
+    "service_worker" : "background.js"
+  }
+}

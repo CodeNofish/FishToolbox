@@ -1,0 +1,28 @@
+{
+  "manifest_version" : 3,
+  "name" : "action ui manifest",
+  "version" : "1.0",
+  "author" : "1980114953@qq.com",
+  "icons" : {
+    "16" : "images/湿度/icon-16.png",
+    "32" : "images/湿度/icon-32.png",
+    "48" : "images/湿度/icon-48.png",
+    "128" : "images/湿度/icon-128.png"
+  },
+  "permissions" : [
+    "activeTab",
+    "scripting"
+  ],
+  "action" : {
+    "default_icon" : {
+      "16" : "images/小雨/icon-16.png",
+      "32" : "images/小雨/icon-32.png",
+      "48" : "images/小雨/icon-48.png",
+      "128" : "images/小雨/icon-128.png"
+    },
+    "default_title" : "点点我"
+  },
+  "background" : {
+    "service_worker" : "background.js"
+  }
+}
