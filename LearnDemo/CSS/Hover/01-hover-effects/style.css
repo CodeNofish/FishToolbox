@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* 弹性布局 默认主轴row */
+    display: flex;
+    /* 主轴方向对齐 */
+    justify-content: center;
+    /* 交叉轴中心对齐 */
+    align-items: center;
+    /* min-height 能够设置元素的最小高度 */
+    min-height: 100vh;
+    background: #252839;
+}
+
+ul {
+    /* 相对布局 不脱离文档流 */
+    position: relative;
+    display: flex;
+    /* 主轴为列 */
+    flex-direction: column;
+    /* 网格行与列之间 */
+    gap: 30px;
+}
+
+ul li {
+    position: relative;
+    /* 不要小圈圈 */
+    list-style: none;
+}
+
+ul li a {
+    /* 这里设置了相对定位 让 ul li a::before 添加的内容找到锚点  */
+    position: relative;
+    font-size: 4em;
+    /* 不要装饰性线条 如连接下划线 */
+    text-decoration: none;
+    /* 设置行框的高度。行间距 */
+    line-height: 1em;
+    /* 设置文本字符的间距 */
+    letter-spacing: 2px;
+    /* 指定如何将元素的文本大写 */
+    text-transform: uppercase;
+    color: transparent;
+    /* 文字描边 */
+    -webkit-text-stroke: 1px var(--clr);
+}
+
+/* before content 内容修饰 */
+ul li a::before {
+    /* attr() 检索所选元素的属性值并在样式表中使用它 */
+    content: attr(data-text);
+    /* 绝对定位 脱离文档流 找到 ul li a 锚点 */
+    position: absolute;
+    /*  */
+    color: var(--clr);
+    /* 显示30% 溢出部分隐藏 */
+    width: 0;
+    overflow: hidden;
+    /* 变化时间 */
+    transition: 1s;
+    /* 左边界 */
+    border-right: 8px solid var(--clr);
+}
+
+ul li a:hover::before {
+    width: 100%;
+    /* 继承的color transparent */
+    /* drop-shadow() CSS 函数将投影效果应用于输入图像。 位置偏移 模糊 颜色 */
+    filter: drop-shadow(0 0 25px var(--clr));
+}
