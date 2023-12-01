@@ -1,0 +1,81 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    /* 计算边缘 */
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background: #eafdff;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 允许wrap换行 */
+    flex-wrap: wrap;
+}
+
+.container .loader
+{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 100px;
+}
+
+.container .loader.one span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /**/
+    display: block;
+    background: #5989ff;
+    /* 50% 圆 椭圆 */
+    border-radius: 50%;
+    /* ease-in-out两头慢 */
+    animation: animate ease-in-out 2s infinite;
+}
+
+/* 玻璃片 */
+.container .loader.one span:nth-child(2) {
+    left: 50%;
+    background: rgba(56,109,241,0.1);
+    /*
+    background-filter CSS 属性允许您将图形效果（例如模糊或颜色偏移）应用到元素后面的区域。
+    因为它适用于元素后面的所有内容，所以要看到效果，元素或其背景需要是透明或部分透明的。
+     */
+    backdrop-filter: blur(10px);
+    /* 玻璃片边框 */
+    border: 2px solid rgba(255,255,255,0.2);
+    /* 和正常片延迟 从-1s开始播放 */
+    animation-delay: -1s;
+}
+
+@keyframes animate {
+    0%,100% {
+        transform: translateX(-80px);
+    }
+    50% {
+        transform: translateX(80px);
+    }
+}
+
+/* Add Shadow */
+.container .loader.one span:before {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -20%;
+    width: 140%;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(rgba(0,0,0,0.04), transparent, transparent);
+}
