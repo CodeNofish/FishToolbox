@@ -1,0 +1,32 @@
+{
+  "name": "rebuild-animate-css",
+  "version": "4.1.1",
+  "description": "A cross-browser library of CSS animations",
+  "license": "MIT",
+  "author": {
+    "name": "CodeNofish",
+    "email": "1980114953@qq.com",
+    "url": "https://nofish.cool"
+  },
+  "bugs": {
+    "email": "1980114953@qq.com",
+    "url": "https://nofish.cool/issues"
+  },
+  "main": "animate.css",
+  "style": "animate.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "animateConfig": {
+    "prefix": "fish_animate__"
+  },
+  "lint-staged": {
+    "*.{mjs,js,json,md,css}": "prettier --write"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "npm-run-all": "^4.1.5"
+  }
+}

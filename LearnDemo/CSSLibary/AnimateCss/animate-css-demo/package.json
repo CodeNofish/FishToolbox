@@ -1,0 +1,29 @@
+{
+  "name": "@nofish-cool/animate-css-demo",
+  "version": "0.0.1",
+  "description": "Learning animate.css Demos.",
+  "keywords": [
+    "demo",
+    "learn"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "CodeNofish",
+    "email": "1980114953@qq.com",
+    "url": "https://nofish.cool"
+  },
+  "bugs": {
+    "email": "1980114953@qq.com",
+    "url": "https://nofish.cool/issues"
+  },
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1"
+  }
+}
