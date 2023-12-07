@@ -28,7 +28,7 @@ PostCSS 架构的总体概述。对于每个希望为核心做出贡献或更好
 
 这是整个 PostCSS 工作流程的高级概述
 
-<img src="./assets/512px-PostCSS_scheme.svg.png" alt="workflow" style="zoom:50%;" />
+<img src="assets/512px-PostCSS_scheme.svg.png" alt="workflow" style="zoom:50%;" />
 
 从上图中可以看出，PostCSS 架构非常简单，但其中的某些部分可能会被误解。
 

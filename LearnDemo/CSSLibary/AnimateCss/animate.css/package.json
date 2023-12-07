@@ -34,7 +34,6 @@
     "last 2 versions"
   ],
   "style": "./animate.css",
-
   "jspm": {
     "main": "animate.css!",
     "format": "global",

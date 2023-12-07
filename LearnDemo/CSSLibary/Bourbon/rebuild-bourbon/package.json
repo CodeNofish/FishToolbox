@@ -1,0 +1,30 @@
+{
+  "name": "rebuild-bourbon",
+  "version": "7.3.0",
+  "description": "A lightweight Sass tool set.",
+  "homepage": "https://www.bourbon.io/",
+  "keywords": [
+    "css",
+    "eyeglass-module",
+    "mixins",
+    "sass",
+    "scss"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "CodeNofish",
+    "email": "1980114953@qq.com",
+    "url": "https://nofish.cool"
+  },
+  "bugs": {
+    "email": "1980114953@qq.com",
+    "url": "https://nofish.cool/issues"
+  },
+  "main": "index.js",
+  "style": "core/_bourbon.scss",
+  "scripts": {
+    "sassdoc": "npx sassdoc core/ --parse --verbose --strict",
+    "stylelint": "npx stylelint 'core/**/*.scss'",
+    "test": "bundle exec rake"
+  }
+}
