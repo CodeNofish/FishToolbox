@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/// Hides the text in an element, commonly used to show an image instead. Some
+/// elements will need block-level styles applied.
+/// 隐藏元素中的文本，通常用于显示图像。某些元素需要应用块级样式。
+///
+/// @link https://goo.gl/EvLRIu
+///
+/// @example scss
+///   .element {
+///     @include hide-text;
+///   }
+///
+///   // CSS Output
+///   .element {
+///     overflow: hidden;
+///     text-indent: 101%;
+///     white-space: nowrap;
+///   }
+
+@mixin hide-text {
+  overflow: hidden;
+  // 用缩减来藏文字
+  // 设置块中文本行之前的空白（缩进）长度。
+  text-indent: 101%;
+  white-space: nowrap;
+}

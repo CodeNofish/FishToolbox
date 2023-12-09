@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+/// Truncates text and adds an ellipsis to represent overflow.
+/// 截断文本并添加省略号以表示溢出。
+///
+/// @argument {number} $width [100%]
+///   The `max-width` for the string to respect before being truncated.
+///   字符串在被截断之前要遵循的最大宽度。
+///
+/// @argument {string} $display [inline-block]
+///   Sets the display-value of the element.
+///   设置元素的显示值。
+///
+/// @example scss
+///   .element {
+///     @include ellipsis;
+///   }
+///
+///   // CSS Output
+///   .element {
+///     display: inline-block;
+///     max-width: 100%;
+///     overflow: hidden;
+///     text-overflow: ellipsis;
+///     white-space: nowrap;
+///     word-wrap: normal;
+///   }
+
+@mixin ellipsis(
+  $width: 100%,
+  $display: inline-block
+) {
+  display: $display;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

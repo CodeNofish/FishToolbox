@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+/// Outputs the `overflow-wrap` property and its legacy name `word-wrap` to
+/// support browsers that do not yet use `overflow-wrap`.
+/// 输出overflow-wrap属性及其旧名称word-wrap以支持尚未使用overflow-wrap的浏览器。
+///
+/// @argument {string} $wrap [break-word]
+///   Accepted CSS values are `normal`, `break-word`, `inherit`, `initial`,
+///   or `unset`.
+///
+/// @example scss
+///   .wrapper {
+///     @include overflow-wrap;
+///   }
+///
+///   // CSS Output
+///   .wrapper {
+///     word-wrap: break-word;
+///     overflow-wrap: break-word;
+///   }
+
+@mixin overflow-wrap($wrap: break-word) {
+  word-wrap: $wrap;
+  // stylelint-disable-next-line order/properties-alphabetical-order
+  overflow-wrap: $wrap;
+}

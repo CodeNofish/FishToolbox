@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+/// Switches between two colors based on the contrast to another color. It’s
+/// like a [ternary operator] for color contrast and can be useful for building
+/// a button system.
+/// 根据与另一种颜色的对比度在两种颜色之间切换。它就像用于颜色对比的三元运算符，可用于构建按钮系统。
+///
+/// The calculation of the contrast ratio is based on the [WCAG 2.0
+/// specification]. However, we cannot guarantee full compliance, though all of
+/// our manual testing passed.
+/// 对比度的计算基于WCAG 2.0规范。然而，尽管我们所有的手动测试都通过了，但我们不能保证完全合规。
+///
+///   [ternary operator]: https://goo.gl/ccfLqi
+///   [WCAG 2.0 specification]: https://goo.gl/zhQuYA
+///
+/// @argument {color} $base-color
+///   The color to evaluate lightness against.
+///   用于评估亮度的颜色。
+///
+/// @argument {color} $dark-color [#000]
+///   The color to be output when `$base-color` is light. Can also be set
+///   globally using the `contrast-switch-dark-color` key in the
+///   Bourbon settings.
+///   $base-color 为浅色时输出的颜色。也可以使用 Bourbon 设置中的对比度开关深色键进行全局设置。
+///
+/// @argument {color} $light-color [#fff]
+///   The color to be output when `$base-color` is dark. Can also be set
+///   globally using the `contrast-switch-light-color` key in the
+///   Bourbon settings.
+///   $base-color 为深色时输出的颜色。也可以使用 Bourbon 设置中的对比度开关灯光颜色键进行全局设置。
+///
+/// @return {color}
+///
+/// @example scss
+///   .element {
+///     color: contrast-switch(#bae6e6);
+///   }
+///
+///   // CSS Output
+///   .element {
+///     color: #000;
+///   }
+///
+/// @example scss
+///   .element {
+///     $button-color: #2d72d9;
+///     background-color: $button-color;
+///     color: contrast-switch($button-color, #222, #eee);
+///   }
+///
+///   // CSS Output
+///   .element {
+///     background-color: #2d72d9;
+///     color: #eee;
+///   }
+///
+/// @require {function} _fetch-bourbon-setting
+///
+/// @require {function} _is-color
+///
+/// @require {function} _contrast-ratio
+///
+/// @since 5.0.0
+
+@function contrast-switch(
+  $base-color,
+  $dark-color: _fetch-bourbon-setting("contrast-switch-dark-color"),
+  $light-color: _fetch-bourbon-setting("contrast-switch-light-color")
+) {
+  @if not _is-color($base-color) {
+    @error "`#{$base-color}` is not a valid color for the `$base-color` " +
+      "argument in the `contrast-switch` function.";
+  } @else if not _is-color($dark-color) {
+    @error "`#{$dark-color}` is not a valid color for the `$dark-color` " +
+      "argument in the `contrast-switch` function.";
+  } @else if not _is-color($light-color) {
+    @error "`#{$light-color}` is not a valid color for the `$light-color` " +
+      "argument in the `contrast-switch` function.";
+  } @else {
+    $-contrast-to-dark: _contrast-ratio($base-color, $dark-color);
+    $-contrast-to-light: _contrast-ratio($base-color, $light-color);
+    $-prefer-dark: $-contrast-to-dark >= $-contrast-to-light;
+
+    @return if($-prefer-dark, $dark-color, $light-color);
+  }
+}
