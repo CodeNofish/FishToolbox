@@ -1,1 +1,0 @@
-https://www.minimamente.com/project/magic/

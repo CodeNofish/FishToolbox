@@ -1,0 +1,15 @@
+// scss-docs-start clearfix
+// https://www.jianshu.com/p/9d6a6fc3e398
+// clearfix清除浮动
+// 通常我们在写html+css的时候，如果一个父级元素内部的子元素是浮动的（float），
+// 那么常会发生父元素不能被子元素正常撑开的情况
+@mixin clearfix() {
+  // ::after 创建一个伪元素
+  &::after {
+    // display:block就是将元素显示为块级元素。
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+// scss-docs-end clearfix

@@ -1,0 +1,277 @@
+{
+  "root": true,
+  "extends": [
+    // 该插件旨在支持 ES2015+ (ES6+) 导入/导出语法的 linting，并防止文件路径和导入名称拼写错误的问题。
+    // ES2015+ 静态模块语法打算提供的所有优点都在编辑器中标记出来。
+    // https://github.com/import-js/eslint-plugin-import
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    // 超过 100 条强大的 ESLint 规则
+    // https://github.com/sindresorhus/eslint-plugin-unicorn
+    "plugin:unicorn/recommended",
+    // XO 的 ESLint 可共享配置
+    // https://github.com/xojs/eslint-config-xo
+    "xo",
+    "xo/browser"
+  ],
+  "rules": {
+    // 此规则可以强制或禁止在箭头函数体周围使用大括号。
+    "arrow-body-style": "off",
+    // 强制或禁止评论首字母大写
+    "capitalized-comments": "off",
+    // 需要或不允许尾随逗号. “never”（默认）不允许尾随逗号
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    // 此规则可以强制或禁止import使用某些文件扩展名。
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "always"
+      }
+    ],
+    // 此规则报告非导入语句之后的任何导入。
+    "import/first": "error",
+    // 强制在最后一个顶级导入语句或 require 调用之后有一个或多个空行。
+    "import/newline-after-import": "error",
+    // 该规则禁止使用绝对路径导入模块。
+    "import/no-absolute-path": "error",
+    // 报告模块范围内的 require([array], ...) 和 Define([array], ...) 函数调用。
+    "import/no-amd": "error",
+    // 确保没有可解析的路径通过其依赖项返回到该模块。
+    "import/no-cycle": [
+      "error",
+      {
+        // 可以使用ignoreExternal选项来防止循环检测扩展到外部模块：
+        "ignoreExternal": true
+      }
+    ],
+    // 报告解析路径是否被导入多次。
+    "import/no-duplicates": "error",
+    // 禁止导入未在 package.json 的依赖项、devDependency、OptionalDependency、peerDependency 或 BundledDependency 中声明的外部模块。
+    "import/no-extraneous-dependencies": "error",
+    // 禁止将可变导出与 var 或 let 一起使用。
+    "import/no-mutable-exports": "error",
+    // 报告使用导出名称作为默认导出的本地导入名称。
+    "import/no-named-as-default": "error",
+    // 报告使用导出名称作为默认导出的属性。
+    "import/no-named-as-default-member": "error",
+    // 报告使用默认导出作为本地命名导入。
+    "import/no-named-default": "error",
+    // 禁止模块导入自身。在重构过程中有时会发生这种情况。
+    "import/no-self-import": "error",
+    // 此规则旨在通过报告何时导入模块但未分配模块来删除具有副作用的模块。
+    "import/no-unassigned-import": [
+      "error"
+    ],
+    // 使用此规则可以防止 import 和 require 语句中不必要的路径段。
+    "import/no-useless-path-segments": "error",
+    // 按照 require() / import 语句的顺序强制执行约定。
+    "import/order": "error",
+    // 此规则强制执行一致的缩进样式。
+    "indent": [
+      "error",
+      2,
+      {
+        // 强制执行多行属性链的缩进级别。也可以将其设置为“off”以禁用对 MemberExpression 缩进的检查。
+        "MemberExpression": "off",
+        // “SwitchCase”（默认值：0）强制 switch 语句中 case 子句的缩进级别
+        "SwitchCase": 1
+      }
+    ],
+    // 此规则强制执行函数定义中允许的最大参数数量。
+    "max-params": [
+      "warn",
+      5
+    ],
+    // 此规则强制或禁止在三元表达式的操作数之间使用换行符。
+    "multiline-ternary": [
+      "error",
+      "always-multiline"
+    ],
+    // 此规则要求构造函数名称以大写字母开头。
+    "new-cap": [
+      "error",
+      {
+        "properties": false
+      }
+    ],
+    // 此规则不允许调用或分配控制台对象的方法。
+    "no-console": "error",
+    // 不允许否定条件
+    "no-negated-condition": "off",
+    // 强制大括号内的间距一致
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    // 此规则强制运算符使用一致的换行样式。
+    "operator-linebreak": [
+      "error",
+      "after"
+    ],
+    // 此规则旨在标记 + 运算符与字符串的使用。
+    "prefer-template": "error",
+    // 此规则强制使用分号的一致性。
+    "semi": [
+      "error",
+      "never"
+    ],
+    // 该规则要求或不允许严格模式指令。
+    "strict": "error",
+    // 这条规则只是为了强制执行特定的风格并使比较更加清晰。
+    "unicorn/explicit-length-check": "off",
+    // 强制所有 linted 文件的名称采用特定的大小写样式和小写文件扩展名。默认为 kebabCase。
+    "unicorn/filename-case": "off",
+    // 防止将函数引用直接传递给迭代器方法
+    "unicorn/no-array-callback-reference": "off",
+    // 禁止在数组方法中使用 this 参数。
+    "unicorn/no-array-method-this-argument": "off",
+    // Disallow the use of the null literal.
+    "unicorn/no-null": "off",
+    // 禁止使用 typeof 比较 undefined。
+    "unicorn/no-typeof-undefined": "off",
+    // 禁止未使用的对象属性。
+    "unicorn/no-unused-properties": "error",
+    // 通过正确分组数字来强制实施数字分隔符的样式。
+    "unicorn/numeric-separators-style": "off",
+    // 与传统技术相比，更喜欢使用 Array#flat() 来展平数组。
+    "unicorn/prefer-array-flat": "off",
+    // 更喜欢使用 .at() 方法进行索引访问和 String#charAt()。
+    "unicorn/prefer-at": "off",
+    // 更喜欢在 DOM 元素上使用 .dataset 而不是调用属性方法。
+    "unicorn/prefer-dom-node-dataset": "off",
+    // 与 CommonJS 相比，更喜欢 JavaScript 模块 (ESM)。
+    "unicorn/prefer-module": "off",
+    // .querySelector() 优于 .getElementById()，.querySelectorAll() 优于 .getElementsByClassName() 和 .getElementsByTagName()。
+    "unicorn/prefer-query-selector": "off",
+    // 优先使用展开运算符而不是 Array.from(…)、Array#concat(…)、Array#{slice,toSpliced}() 和 String#split('')。
+    "unicorn/prefer-spread": "off",
+    // 与使用全局标志的正则表达式搜索相比，更喜欢 String#replaceAll()。
+    "unicorn/prefer-string-replace-all": "off",
+    // 防止缩写。
+    "unicorn/prevent-abbreviations": "off"
+  },
+  // 可以使用 overrides 键覆盖基于配置中的文件通配符模式的设置。
+  "overrides": [
+    {
+      "files": [
+        "build/**"
+      ],
+      "env": {
+        "browser": false,
+        "node": true
+      },
+      "parserOptions": {
+        "sourceType": "module"
+      },
+      "rules": {
+        "no-console": "off",
+        "unicorn/prefer-top-level-await": "off"
+      }
+    },
+    {
+      "files": [
+        "js/**"
+      ],
+      "parserOptions": {
+        "sourceType": "module"
+      }
+    },
+    {
+      "files": [
+        "js/tests/*.js",
+        "js/tests/integration/rollup*.js"
+      ],
+      "env": {
+        "node": true
+      },
+      "parserOptions": {
+        "sourceType": "script"
+      }
+    },
+    {
+      "files": [
+        "js/tests/unit/**"
+      ],
+      "env": {
+        "jasmine": true
+      },
+      "rules": {
+        "no-console": "off",
+        "unicorn/consistent-function-scoping": "off",
+        "unicorn/no-useless-undefined": "off",
+        "unicorn/prefer-add-event-listener": "off"
+      }
+    },
+    {
+      "files": [
+        "js/tests/visual/**"
+      ],
+      "plugins": [
+        "html"
+      ],
+      "settings": {
+        "html/html-extensions": [
+          ".html"
+        ]
+      },
+      "rules": {
+        "no-console": "off",
+        "no-new": "off",
+        "unicorn/no-array-for-each": "off"
+      }
+    },
+    {
+      "files": [
+        "scss/tests/**"
+      ],
+      "env": {
+        "node": true
+      },
+      "parserOptions": {
+        "sourceType": "script"
+      }
+    },
+    {
+      "files": [
+        "site/**"
+      ],
+      "env": {
+        "browser": true,
+        "node": false
+      },
+      "parserOptions": {
+        "sourceType": "script",
+        "ecmaVersion": 2019
+      },
+      "rules": {
+        "no-new": "off",
+        "unicorn/no-array-for-each": "off"
+      }
+    },
+    {
+      "files": [
+        "**/*.md"
+      ],
+      "plugins": [
+        "markdown"
+      ],
+      "processor": "markdown/markdown"
+    },
+    {
+      "files": [
+        "**/*.md/*.js"
+      ],
+      "extends": "plugin:markdown/recommended",
+      "parserOptions": {
+        "sourceType": "module"
+      },
+      "rules": {
+        "unicorn/prefer-node-protocol": "off"
+      }
+    }
+  ]
+}

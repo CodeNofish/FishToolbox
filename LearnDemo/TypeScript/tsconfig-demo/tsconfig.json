@@ -1,0 +1,183 @@
+{
+  // 指定要包含在程序中的文件的允许列表。如果找不到任何文件，则会发生错误。
+  // 当您只有少量文件并且不需要使用 glob 来引用许多文件时，这非常有用。
+  "files": [
+    "core.ts",
+    "sys.ts"
+  ],
+  // extends 的值是一个字符串，其中包含要继承的另一个配置文件的路径。该路径可以使用 Node.js 样式解析。
+  // 首先加载基础文件中的配置，然后被继承配置文件中的配置覆盖。
+  // 配置文件中找到的所有相对路径都将相对于它们源自的配置文件进行解析。
+  "extends": [
+  ],
+  // 指定要包含在程序中的文件名或模式的数组。这些文件名是相对于包含 tsconfig.json 文件的目录进行解析的。
+  "include": [
+  ],
+  // 指定解析包含时应跳过的文件名或模式数组。
+  "exclude": [
+  ],
+  // 项目引用是将 TypeScript 程序构建为更小的片段的一种方法。
+  // 使用项目引用可以极大地缩短构建和编辑器交互时间，强制组件之间的逻辑分离，并以新的和改进的方式组织代码。
+  "references": [
+  ],
+  // 这些选项构成了 TypeScript 配置的大部分，并且涵盖了语言应该如何工作。
+  "compilerOptions": {
+    // ====== 类型检查 ======
+    // 允许无法访问的代码
+    "allowUnreachableCode": false,
+    // 允许未使用的标签
+    "allowUnusedLabels": false,
+    // 确保您的文件在 ECMAScript 严格模式下进行解析，并为每个源文件发出“use strict”。
+    "alwaysStrict": true,
+    // 启用exactOptionalPropertyTypes后，TypeScript围绕如何处理带有 ? 的类型或接口上的属性应用更严格的规则。
+    "exactOptionalPropertyTypes": true,
+    // 报告 switch 语句中失败案例的错误。确保 switch 语句内的任何非空 case 都包含 break、return 或 throw。
+    // 这意味着您不会意外地发送案例失败错误。
+    "noFallthroughCasesInSwitch": true,
+    // 在某些不存在类型注释的情况下，当 TypeScript 无法推断类型时，它会回退到变量的 any 类型。
+    // 然而，打开 noImplicitAny 时，TypeScript 每当推断出任何错误时都会发出错误：
+    "noImplicitAny": true,
+    // 没有隐式覆盖 当使用使用继承的类时，子类可能会在基类中重命名它们时与其重载的函数“不同步”。
+    "noImplicitOverride": true,
+    // 启用后，TypeScript 将检查函数中的所有代码路径以确保它们返回值。
+    "noImplicitReturns": true,
+    // 在隐含“any”类型的“this”表达式上引发错误。
+    "noImplicitThis": true,
+    // 无法从索引签名访问属性
+    "noPropertyAccessFromIndexSignature": true,
+    // 打开 noUncheckedIndexedAccess 会将 undefined 添加到类型中任何未声明的字段。
+    "noUncheckedIndexedAccess": true,
+    // 报告未使用的局部变量的错误。
+    "noUnusedLocals": true,
+    // 报告函数中未使用参数的错误。
+    "noUnusedParameters": true,
+    // strict 标志支持广泛的类型检查行为，从而更好地保证程序的正确性。
+    // 打开此功能相当于启用所有严格模式系列选项，如下所述。
+    // 然后，您可以根据需要关闭单独的严格模式系列检查。
+    "strict": true,
+    // 设置后，TypeScript 将检查是否使用底层函数的正确参数调用了函数 call、bind 和 apply 的内置方法：
+    "strictBindCallApply": true,
+    // 启用后，此标志会导致更正确地检查函数参数。
+    "strictFunctionTypes": true,
+    // 当 strictNullChecks 为 false 时，语言实际上会忽略 null 和 undefined。这可能会导致运行时出现意外错误。
+    // 当 strictNullChecks 为 true 时，null 和 undefined 具有它们自己不同的类型，如果您尝试在需要具体值的地方使用它们，您将收到类型错误。
+    "strictNullChecks": true,
+    // 当设置为 true 时，当声明了类属性但未在构造函数中设置时，TypeScript 将引发错误。
+    "strictPropertyInitialization": true,
+    // 此模式可确保错误处理代码变得更加全面，因为您无法提前保证抛出的对象是 Error 子类。
+    "useUnknownInCatchVariables": false,
+    //
+    // ====== 模块 ======
+    // 允许任意扩展
+    // In TypeScript 5.0, when an import path ends in an extension that isn’t a known JavaScript
+    // or TypeScript file extension, the compiler will look for a declaration file for that
+    // path in the form of {file basename}.d.{extension}.ts.
+    "allowArbitraryExtensions": true,
+    // 允许 TypeScript 文件使用特定于 TypeScript 的扩展名（如 .ts、.mts 或 .tsx）相互导入。
+    "allowImportingTsExtensions": true,
+    // 允许您从模块文件内部访问作为全局变量的 UMD 导出。
+    "allowUmdGlobalAccess": true,
+    // 设置一个基目录，从中解析裸说明符模块名称。
+    // 使用 "baseUrl": "./"，TypeScript 将查找与 tsconfig.json 位于同一文件夹中的文件
+    // 此解析的优先级高于从 node_modules 查找的优先级。
+    // 此功能设计用于与浏览器中的 AMD 模块加载器结合使用，不建议在任何其他情况下使用。
+    // 从 TypeScript 4.1 开始，使用paths时不再需要设置 baseUrl。
+    "baseUrl": "./",
+    // 获取当 TypeScript 从 package.json 的导出或导入字段解析时应成功的附加条件列表。
+    // 这些条件将添加到解析器默认使用的任何现有条件中。
+    "customConditions": [
+      "my-condition"
+    ],
+    // 设置程序的模块系统。有关更多信息，请参阅 TypeScript 模块选项背后的理论及其参考页。
+    // 对于现代 Node.js 项目，您很可能需要“nodenext”。
+    "module": "NodeNext",
+    // 指定模块解析策略
+    "moduleResolution": "NodeNext",
+    // 提供一种方法来覆盖解析模块时要搜索的默认文件名后缀列表。
+    // ./foo.ios.ts、./foo.native.ts，最后是 ./foo.ts
+    "moduleSuffixes": [
+      ".ios",
+      ".native",
+      ""
+    ],
+    // 默认情况下，TypeScript 将检查导入和 <reference 指令的初始文件集，并将这些已解析的文件添加到您的程序中。
+    // 如果设置了 noResolve，则不会发生此过程。但是，仍会检查导入语句以查看它们是否解析为有效模块，因此您需要通过其他方式确保满足这一要求。
+    "noResolve": false,
+    // 一系列条目，将导入重新映射到相对于 baseUrl（如果设置）的查找位置，否则映射到 tsconfig 文件本身。 moduleResolution 参考页面中有更多的路径覆盖。
+    // paths 允许你声明 TypeScript 如何解析 require/imports 中的导入。
+    // 这将使您能够编写 import“jquery”，并在本地获得所有正确的输入。
+    // 在这种情况下，您可以告诉 TypeScript 文件解析器支持许多自定义前缀来查找代码。
+    // 请注意，此功能不会更改 tsc 发出导入路径的方式，因此路径只能用于通知 TypeScript 另一个工具具有此映射，并将在运行时或捆绑时使用它。
+    "paths": {
+      "jquery": [
+        "./vendor/jquery/dist/jquery"
+      ],
+      "app/*": [
+        "./src/app/*"
+      ],
+      "config/*": [
+        "./src/app/_config/*"
+      ],
+      "environment/*": [
+        "./src/environments/*"
+      ],
+      "shared/*": [
+        "./src/app/_shared/*"
+      ],
+      "helpers/*": [
+        "./src/helpers/*"
+      ],
+      "tests/*": [
+        "./src/tests/*"
+      ]
+    },
+    // 允许导入扩展名为 .json 的模块，这是节点项目中的常见做法。这包括根据静态 JSON 形状生成导入类型。
+    // TypeScript 默认不支持解析 JSON 文件：启用该选项允许导入 JSON 并验证该 JSON 文件中的类型。
+    "resolveJsonModule": false,
+    // --resolvePackageJsonExports 强制 TypeScript 在从 node_modules 中的包读取数据时查阅 package.json 文件的导出字段。
+    // 在 --moduleResolution 的 node16、nodenext 和捆绑器选项下，此选项默认为 true。
+    "resolvePackageJsonExports": true,
+    // --resolvePackageJsonImports 在从祖先目录包含 package.json 的文件中执行以 # 开头的查找时，强制 TypeScript 查阅 package.json 文件的导入字段。
+    "resolvePackageJsonImports": true,
+    // rootDir
+    // 默认值：所有非声明输入文件的最长公共路径。如果设置了复合，则默认为包含 tsconfig.json 文件的目录。
+    // 当 TypeScript 编译文件时，它会在输出目录中保留与输入目录中相同的目录结构。
+    // rootDir 的推断值是所有非声明输入文件的最长公共路径，在本例中为 core/。
+    "rootDir": "",
+    // 使用 rootDirs，您可以通知编译器有许多“虚拟”目录充当单个根目录。
+    // 这允许编译器解析这些“虚拟”目录中的相对模块导入，就好像它们被合并到一个目录中一样。
+    "rootDirs": ["src/views", "generated/templates/views"],
+    // 默认情况下，所有可见的“@types”包都包含在您的编译中。任何封闭文件夹的 node_modules/@types 中的包都被视为可见。
+    // 如果指定了 typeRoots，则仅包含 typeRoots 下的包。例如：
+    "typeRoots": ["./typings", "./vendor/types"],
+    // 如果指定了类型，则只有列出的包才会包含在全局范围内。
+    "types": ["node", "jest", "express"],
+    //
+    // ====== Emit生成设置 ======
+    // 为项目中的每个 TypeScript 或 JavaScript 文件生成 .d.ts 文件。
+    // 这些 .d.ts 文件是类型定义文件，用于描述模块的外部 API。
+    // 使用 .d.ts 文件，TypeScript 等工具可以为非类型化代码提供智能感知和准确类型。
+    // export declare let helloWorld: string;
+    "declaration": true,
+    // 提供了一种配置发出声明文件的根目录的方法。
+    "declarationDir": "./types",
+    // 为 .d.ts 文件生成源映射，该文件映射回原始 .ts 源文件。
+    // 这将允许 VS Code 等编辑器在使用“转到定义”等功能时转到原始 .ts 文件。
+    // 如果您正在使用项目引用，您应该强烈考虑打开此功能。
+    "declarationMap": true,
+    // Down leveling 是 TypeScript 的术语，表示转换为旧版本的 JavaScript。
+    // 该标志旨在支持更准确地实现现代 JavaScript 如何在旧版 JavaScript 运行时中迭代新概念。
+    "downlevelIteration": false,
+    // 控制 TypeScript 在写入输出文件时是否发出字节顺序标记 (BOM)。某些运行时环境需要 BOM 才能正确解释 JavaScript 文件；
+    // 其他人要求它不存在。默认值 false 通常是最好的，除非您有理由更改它。
+    "emitBOM": false,
+    // 只发出 .d.ts 文件；不发出 .js 文件。
+    "emitDeclarationOnly": false,
+
+
+    "target": "es2016",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}

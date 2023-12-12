@@ -1,0 +1,107 @@
+/*
+ * Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+ * created by CodeNofish ( 1980114953@qq.com )
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    /* 属性设置元素的总宽度和高度的计算方式 */
+    box-sizing: border-box;
+}
+
+section {
+    display: flex;
+    /* 主轴 交叉轴 居中 */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #042104;
+}
+
+section .container {
+    display: flex;
+}
+
+section .container .circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+section .container .circle span {
+    /* 设置元素在文档中的位置 绝对 脱离文档流 */
+    position: absolute;
+    /* 绝对位置时 控制位置 */
+    top: 0;
+    left: 0;
+    /* 设置元素的宽度 span高度和circle相同 */
+    width: 100%;
+    height: 100%;
+}
+
+section .container .circle span::before {
+    content: "";
+    position: absolute;
+    /* before元素大小 */
+    width: 15px;
+    height: 15px;
+    background: #00ff0a;
+    border-radius: 50%;
+    /* 点点在span框的右边中心 */
+    right: 0;
+    top: 50%;
+    /* 缩放 */
+    transform: scale(0.1);
+    /* 多层阴影 */
+    box-shadow: 0 0 10px #00ff0a,
+    0 0 20px #00ff0a,
+    0 0 40px #00ff0a,
+    0 0 60px #00ff0a,
+    0 0 80px #00ff0a,
+    0 0 100px #00ff0a;
+}
+
+section .container .circle span {
+    /* added */
+    transform: rotate(calc(18deg * var(--i) - 6deg));
+}
+
+section .container .circle {
+    margin: 0 -7.5px;
+}
+
+section .container .circle span::before {
+    animation: animate 4s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes animate {
+    from {
+        transform: scale(1);
+    }
+    50%, to {
+        transform: scale(0.1);
+    }
+}
+
+section .container .circle:nth-child(2) {
+    transform: rotate(-180deg);
+}
+
+section .container .circle:nth-child(2) span::before {
+    animation-delay: calc(-0.1s * var(--i));
+}
+
+section {
+    animation: animateColor 8s linear infinite;
+}
+
+@keyframes animateColor {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
