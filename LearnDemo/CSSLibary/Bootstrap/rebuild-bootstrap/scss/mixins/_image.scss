@@ -1,0 +1,24 @@
+/*!
+ * Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+ * created by CodeNofish ( 1980114953@qq.com )
+ */
+
+// Image Mixins
+// - Responsive image
+// - Retina image
+
+
+// Responsive image
+//
+// Keep images from scaling beyond the width of their parents.
+// 防止图像缩放超过其父级的宽度。
+
+@mixin img-fluid {
+  // Part 1: Set a maximum relative to the parent
+  // 设置相对于父级的最大值
+  max-width: 100%;
+  // Part 2: Override the height to auto, otherwise images will be stretched
+  // when setting a width and height attribute on the img element.
+  // 将高度覆盖为 auto，否则在 img 元素上设置 width 和 height 属性时，图像将被拉伸。
+  height: auto;
+}

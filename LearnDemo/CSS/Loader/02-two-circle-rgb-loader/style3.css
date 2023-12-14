@@ -50,7 +50,7 @@ section .container .circle span::before {
     border-radius: 50%;
     /* 点点在span框的右边中心 */
     right: 0;
-    top: calc(50% - 7.5px);
+    top: 50%;
     /* 缩放 */
     transform: scale(0.1);
     /* 多层阴影 */
@@ -63,7 +63,8 @@ section .container .circle span::before {
 }
 
 section .container .circle span {
-    transform: rotate(calc(18deg * var(--i)));
+    /* added */
+    transform: rotate(calc(18deg * var(--i) - 6deg));
 }
 
 section .container .circle {

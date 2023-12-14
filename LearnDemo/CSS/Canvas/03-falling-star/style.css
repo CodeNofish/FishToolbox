@@ -1,0 +1,32 @@
+/*
+ * Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+ * created by CodeNofish ( 1980114953@qq.com )
+ */
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at bottom, #0d1e31, #111);
+    overflow: hidden;
+}
+
+.night {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 4px;
+    width: 100px;
+    background: linear-gradient(-45deg, #5f91ff, rgba(0, 0, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px #699bff);
+}
+
+

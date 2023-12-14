@@ -1,0 +1,48 @@
+<!--
+  ~ Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+  ~ created by CodeNofish ( 1980114953@qq.com )
+  -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Circle Fluid Loader</title>
+  <link rel='stylesheet' href='style.css' />
+</head>
+<body>
+
+<div class='box'>
+
+  <!-- SVG滤镜 -->
+  <svg>
+    <filter id='fluid'>
+      <feGaussianBlur in='SourceGraphic' stdDeviation='10' />
+      <feColorMatrix values='
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        0 0 0 20 -10'></feColorMatrix>
+    </filter>
+  </svg>
+
+  <div class='loader'>
+    <span style='--i:1'></span>
+    <span style='--i:2'></span>
+    <span style='--i:3'></span>
+    <span style='--i:4'></span>
+    <span style='--i:5'></span>
+    <span style='--i:6'></span>
+    <span style='--i:7'></span>
+    <span style='--i:8'></span>
+
+    <span class='rotate' style='--j:0'></span>
+    <span class='rotate' style='--j:1'></span>
+    <span class='rotate' style='--j:2'></span>
+    <span class='rotate' style='--j:3'></span>
+    <span class='rotate' style='--j:4'></span>
+  </div>
+</div>
+
+</body>
+</html>

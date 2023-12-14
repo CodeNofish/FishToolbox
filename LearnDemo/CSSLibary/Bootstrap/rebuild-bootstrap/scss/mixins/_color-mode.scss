@@ -1,0 +1,27 @@
+/*!
+ * Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+ * created by CodeNofish ( 1980114953@qq.com )
+ */
+
+// scss-docs-start color-mode-mixin
+@mixin color-mode($mode: light, $root: false) {
+  @if $color-mode-type == "media-query" {
+    @if $root == true {
+      // CSS媒体功能用于检测用户是否请求浅色或深色主题。
+      @media (prefers-color-scheme: $mode) {
+        :root {
+          @content;
+        }
+      }
+    } @else {
+      @media (prefers-color-scheme: $mode) {
+        @content;
+      }
+    }
+  } @else {
+    [data-bs-theme="#{$mode}"] {
+      @content;
+    }
+  }
+}
+// scss-docs-end color-mode-mixin

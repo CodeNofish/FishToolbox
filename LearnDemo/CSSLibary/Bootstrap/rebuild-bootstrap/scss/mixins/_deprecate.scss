@@ -1,0 +1,17 @@
+/*!
+ * Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+ * created by CodeNofish ( 1980114953@qq.com )
+ */
+
+// Deprecate mixin
+//
+// This mixin can be used to deprecate mixins or functions.
+// `$enable-deprecation-messages` is a global variable, `$ignore-warning` is a variable that can be passed to
+// some deprecated mixins to suppress the warning (for example if the mixin is still be used in the current version of Bootstrap)
+// 此 mixin 可用于弃用 mixin 或函数。'enable-deprecation-messages' 是一个全局变量，“ignore-warning”是一个变量，
+// 可以传递给一些已弃用的 mixin 来抑制警告（例如，如果 mixin 仍在当前版本的 Bootstrap 中使用）
+@mixin deprecate($name, $deprecate-version, $remove-version, $ignore-warning: false) {
+  @if ($enable-deprecation-messages != false and $ignore-warning != true) {
+    @warn "#{$name} has been deprecated as of #{$deprecate-version}. It will be removed entirely in #{$remove-version}.";
+  }
+}

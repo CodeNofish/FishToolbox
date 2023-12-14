@@ -1,0 +1,13 @@
+/*!
+ * Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+ * created by CodeNofish ( 1980114953@qq.com )
+ */
+
+// scss-docs-start mixin-color-scheme
+@mixin color-scheme($name) {
+  // prefers-color-scheme CSS 媒体特性用于检测用户是否有将系统的主题色设置为亮色或者暗色
+  @media (prefers-color-scheme: #{$name}) {
+    @content;
+  }
+}
+// scss-docs-end mixin-color-scheme

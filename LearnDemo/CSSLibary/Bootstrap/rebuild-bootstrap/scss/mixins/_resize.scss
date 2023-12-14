@@ -1,0 +1,7 @@
+// Resize anything
+
+@mixin resizable($direction) {
+  overflow: auto; // Per CSS3 UI, `resize` only applies when `overflow` isn't `visible`
+  // resize CSS 属性设置元素是否可调整大小，如果可以，则可调整方向。
+  resize: $direction; // Options: horizontal, vertical, both
+}

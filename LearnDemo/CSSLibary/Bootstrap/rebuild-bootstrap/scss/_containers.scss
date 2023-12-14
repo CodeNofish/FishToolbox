@@ -1,0 +1,51 @@
+/*!
+ * Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+ * created by CodeNofish ( 1980114953@qq.com )
+ */
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+// 设置容器宽度，并在媒体查询中为固定导航栏覆盖它。
+
+@if $enable-container-classes {
+
+  // Single container class with breakpoint max-widths
+  // 具有断点最大宽度的单个容器类
+  .container,
+    // 100% wide container at all breakpoints
+  .container-fluid {
+    @include make-container();
+  }
+
+  // Responsive containers that are 100% wide until a breakpoint
+  // 响应式容器，在断点之前为 100% 宽
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    .container-#{$breakpoint} {
+      @extend .container-fluid;
+    }
+
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      %responsive-container-#{$breakpoint} {
+        max-width: $container-max-width;
+      }
+
+      // Extend each breakpoint which is smaller or equal to the current breakpoint
+      $extend-breakpoint: true;
+
+      @each $name, $width in $grid-breakpoints {
+        @if ($extend-breakpoint) {
+          .container#{breakpoint-infix($name, $grid-breakpoints)} {
+            @extend %responsive-container-#{$breakpoint};
+          }
+
+          // Once the current breakpoint is reached, stop extending
+          @if ($breakpoint == $name) {
+            $extend-breakpoint: false;
+          }
+        }
+      }
+    }
+  }
+
+}

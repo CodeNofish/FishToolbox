@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{@docsearch, font_4096975_w98djv8agrm, jquery-1.8.0, remixicon}" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>

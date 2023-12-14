@@ -11,5 +11,9 @@
     <orderEntry type="library" name="@types/chrome" level="application" />
     <orderEntry type="library" name="@types/node" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery-1.8.0" level="application" />
+    <orderEntry type="library" name="remixicon" level="application" />
+    <orderEntry type="library" name="font_4096975_w98djv8agrm" level="application" />
+    <orderEntry type="library" name="@docsearch" level="application" />
   </component>
 </module>

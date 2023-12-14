@@ -1,0 +1,97 @@
+/*
+ * Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+ * created by CodeNofish ( 1980114953@qq.com )
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    /* 将 flex 项强制换行到一行上，还是可以换行到多行上。 */
+    flex-wrap: wrap;
+}
+
+/* 小盒子 */
+.container .box {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: #111;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.container .box::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: #1d1d1d;
+    box-shadow: 0 1px 4px #000;
+}
+
+.container .box:hover::before {
+    background: #f00;
+    box-shadow: 0 0 3px #f00,
+    0 0 10px #f00;
+}
+
+/* 鼠标离开 延迟消失 */
+.container .box::before {
+    transition: 1s ease-in-out;
+}
+
+/* 鼠标进入 立马显示 */
+.container .box:hover::before {
+    transition: 0s ease-in-out;
+}
+
+/* 不同格子颜色 */
+.container .box:nth-child(9n+1):hover::before {
+    background: #ee6e6f;
+    box-shadow: 0 0 3px #ee6e6f, 0 0 10px #ee6e6f;
+}
+
+.container .box:nth-child(9n+2):hover::before {
+    background: #e7a418;
+    box-shadow: 0 0 3px #e7a418, 0 0 10px #e7a418;
+}
+
+.container .box:nth-child(9n+3):hover::before {
+    background: #aaed12;
+    box-shadow: 0 0 3px #aaed12, 0 0 10px #aaed12;
+}
+
+.container .box:nth-child(9n+4):hover::before {
+    background: #2bed12;
+    box-shadow: 0 0 3px #2bed12, 0 0 10px #2bed12;
+}
+
+.container .box:nth-child(9n+5):hover::before {
+    background: #26d998;
+    box-shadow: 0 0 3px #26d998, 0 0 10px #26d998;
+}
+
+.container .box:nth-child(9n+6):hover::before {
+    background: #34b3cb;
+    box-shadow: 0 0 3px #34b3cb, 0 0 10px #34b3cb;
+}
+
+.container .box:nth-child(9n+7):hover::before {
+    background: #3253cd;
+    box-shadow: 0 0 3px #3253cd, 0 0 10px #3253cd;
+}
+
+.container .box:nth-child(9n+8):hover::before {
+    background: #632cd3;
+    box-shadow: 0 0 3px #632cd3, 0 0 10px #632cd3;
+}
+
+.container .box:nth-child(9n+8):hover::before {
+    background: #ca35c7;
+    box-shadow: 0 0 3px #ca35c7, 0 0 10px #ca35c7;
+}

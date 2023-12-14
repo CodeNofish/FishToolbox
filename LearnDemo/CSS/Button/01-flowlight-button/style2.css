@@ -1,0 +1,78 @@
+/*
+ * Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+ * created by CodeNofish ( 1980114953@qq.com )
+ */
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+a {
+    position: relative;
+    /* display CSS  属性设置元素是被视为块框还是内联框 ，
+    以及用于其子元素的布局，例如流布局 、网格 或弹性  */
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    line-height: 60px;
+    text-align: center;
+    /*background-color: skyblue;*/
+    text-decoration: none;
+    /* 炫彩! */
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    /* 延长炫彩! */
+    background-size: 400%;
+    border-radius: 10px;
+}
+
+a:hover {
+    animation: animate 6s linear infinite;
+}
+
+/* 光影盒子 */
+a:before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 10px;
+}
+
+a:before {
+    opacity: 0;
+    transition: all 1s;
+}
+
+a:hover:before {
+    filter: blur(20px);
+    opacity: 1;
+}
+
+/* 增加动画暂停 */
+a {
+    animation: animate 6s linear infinite;
+    animation-play-state: paused;
+}
+
+a:hover {
+    animation-play-state: running;
+}
+
+@keyframes animate {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 400% 0;
+    }
+}

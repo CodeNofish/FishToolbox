@@ -1,0 +1,78 @@
+/*
+ * Copyright (C) 2023-2024 猫咪红茶工作室 All rights reserved
+ * created by CodeNofish ( 1980114953@qq.com )
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0c1b21;
+}
+
+.loader {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    /*background: #666;*/
+    background: transparent;
+}
+
+/* 珠珠 */
+.loader span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.loader span::before {
+    content: "";
+    position: absolute;
+    /* 珠珠在框内 左边居中 */
+    top: 0;
+    left: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #c7eeff, #03a9f4);
+    border-radius: 50%;
+    box-shadow: 0 0 30px #00bcd4;
+}
+
+.loader span {
+    transform: rotate(calc(45deg * var(--i)));
+
+}
+
+.loader {
+    /* 使用svg滤镜 */
+    filter: url(#fluid);
+    animation: animate 8s linear infinite;
+}
+
+svg {
+    width: 0;
+    height: 0;
+}
+
+@keyframes animate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: animate 4s ease-in-out infinite;
+    animation-delay: calc(-0.2s * var(--j));
+}
